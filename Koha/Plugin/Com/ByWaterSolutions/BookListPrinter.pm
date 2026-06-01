@@ -177,6 +177,7 @@ sub report_step2 {
                     OR
                     items.itype IN ( $in_string )
                 )
+                AND items.itype NOT IN ( 'ILL', 'ILL7' )
             };
         }
 
