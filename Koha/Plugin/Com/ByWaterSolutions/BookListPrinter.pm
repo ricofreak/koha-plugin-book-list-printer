@@ -242,6 +242,16 @@ sub report_step2 {
 
             push(@items, $s);
         }
+        # Sort all items by subject, then title within each subject
+        @items = sort {
+            $a->{subject} cmp $b->{subject}
+            ||
+            do {
+                (my $ta = lc($a->{formatted_title} // '')) =~ s/^(the|an|a)\s+//;
+                (my $tb = lc($b->{formatted_title} // '')) =~ s/^(the|an|a)\s+//;
+                $ta cmp $tb
+            }
+        } @items;
         $items = \@items;
     } else {
         my $search_params = {};
