@@ -83,6 +83,7 @@
             <tr>
               [% IF show_author %]<th>Author</th>[% END %]
               [% IF show_title %]<th>Title</th>[% END %]
+              [% IF show_series %]<th>Series</th>[% END %]
               [% IF show_call_number %]<th>Item info.</th>[% END %]
             </tr>
           </thead>
@@ -104,6 +105,9 @@
                     [% IF show_author %]<td></td>[% END %]
                     [% IF show_title %]
                         <td>[% i.formatted_title %]</td>
+                    [% END %]
+                    [% IF show_series %]
+                        <td>[% i.series | html %]</td>
                     [% END %]
                     [% IF show_call_number %]
                         <td>[% i.formatted_item | html %]</td>
