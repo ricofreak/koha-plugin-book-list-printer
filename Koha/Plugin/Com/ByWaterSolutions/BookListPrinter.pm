@@ -328,6 +328,11 @@ sub report_step2 {
         $list_title = $ccodes[0] . " Books";
     }
 
+    if (@locations) {
+        my $loc_string = join(', ', @locations);
+        $list_title .= " - $loc_string";
+    }
+
     # Add sort order
     $list_title .= " by Author" if $display_by eq 'author';
     $list_title .= " by Title" if $display_by eq 'title';
